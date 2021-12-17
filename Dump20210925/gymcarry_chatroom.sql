@@ -1,0 +1,72 @@
+-- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+--
+-- Host: mysql205.cszw5wiaeg6n.us-east-2.rds.amazonaws.com    Database: gymcarry
+-- ------------------------------------------------------
+-- Server version	8.0.23
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+-- SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+-- SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
+
+--
+-- Table structure for table `chatroom`
+--
+
+DROP TABLE IF EXISTS `chatroom`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chatroom` (
+  `MESSAGEIDX` int NOT NULL AUTO_INCREMENT COMMENT '메세지 번호',
+  `CHATIDX` int NOT NULL COMMENT '채팅방번호',
+  `CHATCONTENT` mediumtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '대화내용',
+  `CHATDATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '대화시간',
+  `CRIDX` int NOT NULL COMMENT '캐리번호',
+  `MEMIDX` int NOT NULL COMMENT '회원번호',
+  `CONTENTTYPE` int DEFAULT '0' COMMENT '0=유저대화, 1=캐리대화',
+  `CHATREAD` int DEFAULT '0' COMMENT '멤버메세지=0, 캐리메세지=1, 모두읽으면 2',
+  PRIMARY KEY (`MESSAGEIDX`),
+  KEY `FK_CARRY_TO_CHATROOM` (`CRIDX`),
+  KEY `FK_MEMBER_TO_CHATROOM` (`MEMIDX`),
+  KEY `FK_CHATLIST_TO_CHATROOM` (`CHATIDX`),
+  CONSTRAINT `FK_CARRY_TO_CHATROOM` FOREIGN KEY (`CRIDX`) REFERENCES `carry` (`CRIDX`) ON DELETE CASCADE,
+  CONSTRAINT `FK_CHATLIST_TO_CHATROOM` FOREIGN KEY (`CHATIDX`) REFERENCES `chatlist` (`CHATIDX`) ON DELETE CASCADE,
+  CONSTRAINT `FK_MEMBER_TO_CHATROOM` FOREIGN KEY (`MEMIDX`) REFERENCES `member` (`MEMIDX`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chatroom`
+--
+
+LOCK TABLES `chatroom` WRITE;
+/*!40000 ALTER TABLE `chatroom` DISABLE KEYS */;
+INSERT INTO `chatroom` VALUES (2,14,'하이용','2021-09-24 12:35:17',3,3,0,2),(3,14,'문의하고싶슴다','2021-09-24 12:35:21',3,3,0,2),(4,14,'gㅏ이','2021-09-24 12:36:48',3,3,1,2),(5,14,'뭘 문의하고싶으신지요 ?','2021-09-24 12:36:53',3,3,1,2),(6,12,'안녕하세요','2021-09-24 12:37:38',3,27,0,2),(7,12,'하이','2021-09-24 12:37:39',3,27,1,2),(8,14,'asdfasdf','2021-09-24 12:37:39',3,3,0,2),(9,14,'음','2021-09-24 12:37:41',3,3,0,2),(10,12,'난리 치셨나요 ?','2021-09-24 12:37:42',3,27,1,2),(11,14,'보내봐주세여','2021-09-24 12:37:44',3,3,0,2),(12,14,'하이','2021-09-24 12:37:48',3,3,0,2),(13,14,'하이하이 ','2021-09-24 12:38:04',3,3,1,1),(14,12,'ㅁㄴㅇ','2021-09-24 12:38:39',3,27,0,2),(15,12,'상대방이 채팅방을 삭제하셨습니다.','2021-09-24 12:46:17',3,27,0,2),(16,12,'상대방이 채팅방을 삭제하셨습니다.','2021-09-24 12:46:35',3,27,0,2),(17,12,'안녕하세요','2021-09-24 12:46:47',3,27,0,2),(18,12,'ㅁㄴㅇ라ㅣㅁㄴㅇ','2021-09-24 12:46:59',3,27,0,2),(19,12,'ㅁㄴ이;람ㄴㅇ라ㅣ;','2021-09-24 12:47:03',3,27,0,2),(20,12,'ㅎ2','2021-09-24 12:47:07',3,27,1,2),(21,12,'ㅎ2','2021-09-24 12:47:14',3,27,1,2),(22,12,'ㅁㄴ이람ㄴ이ㅏㄹㄹ','2021-09-24 12:47:14',3,27,0,2),(23,12,'ㅇㄴㅁㅇㅁ','2021-09-24 12:47:15',3,27,1,2),(24,12,'ㄹㅁㄴㅇㄹㄴㅇㄹ','2021-09-24 12:47:16',3,27,1,2),(25,12,'ㄹ','2021-09-24 12:47:17',3,27,1,2),(26,12,'안녕하세요','2021-09-24 12:47:20',3,27,0,2),(27,12,'하이','2021-09-24 12:47:33',3,27,1,2),(28,12,'하이','2021-09-24 12:47:54',3,27,0,2),(29,12,'뭐가문제져?','2021-09-24 12:48:06',3,27,0,2),(30,13,'ㅁㄴㅇ','2021-09-24 12:48:13',48,27,0,2),(31,13,'상대방이 채팅방을 삭제하셨습니다.','2021-09-24 12:48:19',48,27,0,0),(32,2,'저기..','2021-09-24 12:56:27',3,21,0,2),(33,12,'ㅇ','2021-09-24 12:56:27',3,27,0,2),(34,12,'ㅇ','2021-09-24 12:56:27',3,27,0,2),(35,12,'뭐가문제십니까?','2021-09-24 12:56:30',3,27,0,2),(36,2,'운동 배우고 싶은데 문의 가능한가요','2021-09-24 12:56:35',3,21,0,2),(37,12,'뭐가문제져~~~?','2021-09-24 12:56:37',3,27,0,2),(38,12,'뭐가문제십니까~~~~~~~~~~~~~~~~~?','2021-09-24 12:56:42',3,27,0,2),(39,12,'뭐가문제십니까~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~?','2021-09-24 12:56:49',3,27,0,2),(40,12,'뭔가문제십니까','2021-09-24 12:57:01',3,27,0,2),(41,2,'하이','2021-09-24 12:57:05',3,21,0,2),(42,12,'뭐가','2021-09-24 12:57:23',3,27,0,2),(43,12,'뭐가','2021-09-24 12:57:24',3,27,0,2),(44,12,'뭐가','2021-09-24 12:57:25',3,27,0,2),(45,12,'문제','2021-09-24 12:57:25',3,27,0,2),(46,12,'십니까~~~?','2021-09-24 12:57:27',3,27,0,2),(47,12,'뭐가문제십니~까~~~~~~~~~?','2021-09-24 12:57:32',3,27,0,2),(48,12,'gkdl','2021-09-24 12:57:32',3,27,1,2),(49,12,'하이','2021-09-24 12:57:33',3,27,1,2),(50,12,'안녕하세요','2021-09-24 12:57:35',3,27,0,2),(51,12,'강아지','2021-09-24 12:57:35',3,27,1,2),(52,12,'기엽네','2021-09-24 12:57:36',3,27,1,2),(53,12,'요','2021-09-24 12:57:37',3,27,1,2),(54,12,'기엽죠\\','2021-09-24 12:57:38',3,27,0,2),(55,12,'네','2021-09-24 12:57:39',3,27,1,2),(56,12,'기엽죠?','2021-09-24 12:57:39',3,27,0,2),(57,12,'네네','2021-09-24 12:57:41',3,27,1,2),(58,12,'뭐가안대십니까?','2021-09-24 12:57:44',3,27,0,2),(59,12,'알람도 ','2021-09-24 12:57:45',3,27,1,2),(60,12,'됩니다','2021-09-24 12:57:47',3,27,1,2),(61,12,'저는요','2021-09-24 12:57:48',3,27,1,2),(62,12,'네','2021-09-24 12:57:50',3,27,0,2),(63,12,'제꺼 페이징 처리 해놓은게 안되네여','2021-09-24 12:57:54',3,27,1,2),(64,12,'글이 짤려서 뜹니다','2021-09-24 12:57:59',3,27,1,2),(65,12,'헐','2021-09-24 12:58:02',3,27,0,2),(66,12,'망할..','2021-09-24 12:58:10',3,27,0,2),(67,12,'페이징...','2021-09-24 12:58:12',3,27,0,2),(68,12,'1번글이','2021-09-24 12:58:18',3,27,1,2),(69,12,'안불러와졌어여','2021-09-24 12:58:22',3,27,1,2),(70,17,'선생님...','2021-09-24 16:51:02',28,4,0,2),(71,17,'d','2021-09-24 17:09:01',28,4,1,2),(72,17,'와웅','2021-09-24 17:09:03',28,4,1,2);
+/*!40000 ALTER TABLE `chatroom` ENABLE KEYS */;
+UNLOCK TABLES;
+-- SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-09-25 22:16:36

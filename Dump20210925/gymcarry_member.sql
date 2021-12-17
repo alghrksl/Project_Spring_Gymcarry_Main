@@ -1,0 +1,70 @@
+-- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+--
+-- Host: mysql205.cszw5wiaeg6n.us-east-2.rds.amazonaws.com    Database: gymcarry
+-- ------------------------------------------------------
+-- Server version	8.0.23
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+-- SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+-- SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
+
+--
+-- Table structure for table `member`
+--
+
+DROP TABLE IF EXISTS `member`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `member` (
+  `MEMIDX` int NOT NULL AUTO_INCREMENT COMMENT '회원번호',
+  `JOINKEY_STATUS` varchar(50) DEFAULT '0' COMMENT '인증키 여부',
+  `JOINKEY` varchar(10) DEFAULT NULL COMMENT '인증키 저장',
+  `MEMEMAIL` varchar(40) DEFAULT NULL COMMENT '이메일',
+  `MEMPW` varchar(100) DEFAULT NULL COMMENT '비밀번호',
+  `MEMNAME` varchar(50) DEFAULT NULL COMMENT '이름',
+  `MEMNICK` varchar(50) DEFAULT NULL COMMENT '닉네임',
+  `MEMPHONE` varchar(50) DEFAULT NULL COMMENT '핸드폰번호',
+  `MEMBIRTH` int DEFAULT NULL COMMENT '생년월일',
+  `MEMGENDER` varchar(5) DEFAULT NULL COMMENT '성별',
+  `MEMPHOTO` varchar(50) DEFAULT 'profile2.png' COMMENT '회원사진',
+  `SNSJOINID` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`MEMIDX`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='회원';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `member`
+--
+
+LOCK TABLES `member` WRITE;
+/*!40000 ALTER TABLE `member` DISABLE KEYS */;
+INSERT INTO `member` VALUES (1,'1','02544133','gymmemtest@gmail.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','신은경','신셋찌','01086385390',19921120,'여자','null1632492591205.jpg',NULL),(2,'1','53577202','aboPla@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','허한길','수한무','01048381928',19910102,'남자','aboPla@naver.com1632471313065.png',NULL),(3,'1','77054243','jiwon@gmail.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','황지원','지원지원','01023152568',19940131,'여자','jiwon@gmail.com1632471337652.jpg',NULL),(4,'1',NULL,'hwangjiwon@kakao.com','',NULL,'YerinBaek','01038572727',NULL,NULL,'null1632504405440.jpg','1910579461'),(5,'1',NULL,'xxxlikeag1@gmail.com','',NULL,'BlueVinyl','01083742356',NULL,NULL,'null1632471597690.jpg','103283322114459988170'),(7,'1','34133232','kim@naver.com','0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c','이광수','기린','01053424533',19860501,'남자','kim@naver.com1632540961213.png',NULL),(8,'1','21363357','tmdals1@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김승민','김승민','01012345678',19970324,'남자','tmdals1@naver.com1632531162664.png',NULL),(9,'1','17037026','Gazaniga@daum.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','손창희','아르테타','01039492846',19930201,'여자','Gazaniga@daum.com1632471460683.png',NULL),(10,'1','47721054','kimyousin@gmail.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김유신','장군','01065858445',19200208,'남자','null1632471715825.png',NULL),(11,'1','03537716','heybrilliante@gmail.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','별이','별이','01001010101',19990927,'여자','null1632488597438.jpg',NULL),(12,'1','34206500','ronaldo@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','제갈혁','크리스티아누','01039104040',19880413,'남자','profile2.png',NULL),(13,'1','12030175','madongseuck@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','마동석','옆집아저씨','01045548888',19800405,'남자','null1632471669596.png',NULL),(14,'1','23174761','tmdals2@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','승민쓰','승민쓰','01012341234',19970324,'남자','null1632471893764.png',NULL),(15,'1','67152734','snoopy@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','선우빈','스누피','01037265757',19971120,'여자','snoopy@naver.com1632471710581.jpg',NULL),(16,'1',NULL,'kimzzan016@dreamwiz.com','',NULL,'아재다댓내','01064249397',NULL,NULL,'profile2.png','1913749842'),(17,'1','53630370','seokj@gmail.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','서강준','서강준','01037273636',19931011,'남자','seokj@gmail.com1632471769620.jpg',NULL),(18,'1','74163434','tmdals3@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김승민','승민최고','01011112222',19970324,'남자','tmdals3@naver.com1632471800310.jpg',NULL),(19,'1',NULL,'abcdefgh_@hanmail.net','',NULL,'강아지좋아나도좋아','01041207796',NULL,NULL,'null1632485309812.jpeg','1910767362'),(20,'1',NULL,'eehoohahh@gmail.com','',NULL,'별보다빛나리','01041207797',NULL,NULL,'null1632471979050.jpeg','101590416562442595664'),(21,'1','10452736','111@111.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김말순','평온하세요','01022222222',19980101,'여자','111@111.com1632472065262.png',NULL),(22,'1','30134410','tmdals8@nate.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','박보람','박보람','01012357245',19970324,'여자','tmdals8@nate.com1632472680465.jpg',NULL),(23,'1','72413705','ronaldo5@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김수련','수묵화','01037467486',19950312,'여자','profile2.png',NULL),(24,'1','53633733','alghrksl@naver.com','e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855','김연나','여나','01083646837',19960413,'남자','alghrksl@naver.com1632556204382.png',NULL),(27,'1','47402375','japanwax@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김명호','난리부르스','01064249787',19880630,'남자','null1632488166171.png',NULL),(28,'1','50420042','adh4015@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김력도','장미란','01037469948',19960413,'남자','profile2.png',NULL),(29,'1','14632512','heybrilliant@naver.com','0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c','춘식','춘식','01082387121',19921111,'여자','heybrilliant@naver.com1632486984928.jpg',NULL),(30,'1','52403244','alghrksl123@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김운','가니','01038479374',19960413,'남자','alghrksl123@naver.com1632494623760.png',NULL),(33,'1',NULL,NULL,NULL,NULL,'바보','01033339494',NULL,NULL,'profile2.png','1912663971'),(35,'1',NULL,'kimzzan1234@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'profile2.png','106659293008433718740'),(36,'1',NULL,NULL,NULL,NULL,'헬창','01055556666',NULL,NULL,'profile2.png','1913476092'),(37,'1','74545150','Korea@naver.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','김은명','동아대백과사','01048763987',19960413,'여자','profile2.png',NULL),(38,'0',NULL,'ganyhoon@gmail.com',NULL,NULL,'프캠트비','01099991824',NULL,NULL,'profile2.png','105553652383825974183'),(44,'0','24114133','tmdals1592@naver.com','0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c','승민','rjudfh','01028312111',19921111,'남자','profile2.png',NULL),(50,'0','40533116','heybrilliant@hanmail.net','0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c','안산','금메달콜렉터','01099991111',19990927,'여자','profile2.png',NULL);
+/*!40000 ALTER TABLE `member` ENABLE KEYS */;
+UNLOCK TABLES;
+-- SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-09-25 22:17:36
