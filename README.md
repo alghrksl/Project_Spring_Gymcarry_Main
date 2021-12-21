@@ -115,9 +115,10 @@
 
     <br>
 
-## 5. 시연 연상
-
-<img width="1404" alt="스크린샷 2021-12-09 오후 10 56 00" src="https://user-images.githubusercontent.com/83346234/145409502-31e69811-0291-4c99-85b1-9cc9329e924b.png">
+## 5. 기능 일부 시연 연상
+    
+   
+<img width="1404" alt="스크린샷 2021-12-09 오후 10 56 00" src="https://user-images.githubusercontent.com/50814859/146911844-3fd48f8e-058e-4604-95c4-e9ed2949fd2b.gif">
 
 
 <br>
