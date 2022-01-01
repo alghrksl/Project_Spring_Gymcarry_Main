@@ -29,7 +29,7 @@
 
 <br>
 
-## 3. [배포 주소 바로가기](http://ec2-54-180-94-234.ap-northeast-2.compute.amazonaws.com:8080/gym/index)<img width="1404" alt="145409502-31e69811-0291-4c99-85b1-9cc9329e924b" src="https://user-images.githubusercontent.com/50814859/146622236-b8cbd352-315f-470b-84db-daceafa5403e.png">
+## 3. [배포 주소 바로가기](http://ec2-3-36-38-154.ap-northeast-2.compute.amazonaws.com:8080/gym/index)<img width="1404" alt="145409502-31e69811-0291-4c99-85b1-9cc9329e924b" src="https://user-images.githubusercontent.com/50814859/146622236-b8cbd352-315f-470b-84db-daceafa5403e.png">
 
 
 ```
