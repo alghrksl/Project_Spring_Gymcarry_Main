@@ -33,7 +33,7 @@
 
 
 ```
-회원 로그인 계정 : KimHoon@naver.com / 123123
+회원 로그인 계정 : KimHoon@naver.com / 1234
 캐리(코치) 로그인 계정 : KimHoon@naver.com / 1234
 ```
 
